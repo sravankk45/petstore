@@ -27,5 +27,10 @@
 * The below details are configured in config.properies file(available in petstore\src\main\java\com\zooplus\config\config.properties)
 	* baseURI for pet store rest api
 
+* TestBase class (com.zooplus.base package) is base class for all tests and it provides configurations like baseURI and base directory of project to tests
+* All test classes (com.zooplus.tests package) extends TestBase class to inherit base configuration data.
+* Json payload for Pet(creation and updation) is created using Pojo java class pattern with getter and setter methods.
+	* com.zooplus.pojo.PetPojo class to represent the nested JSON payload for Pet in API requests
+	
 
 

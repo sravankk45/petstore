@@ -28,10 +28,6 @@ public class TestBase{
 		return baseURI;
 	}
 	
-	public String getApiKey() {
-		String apiKey=properties.getProperty("apiKey");
-		return apiKey;
-	}
-	
+
 	
 }
