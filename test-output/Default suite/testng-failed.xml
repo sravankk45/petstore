@@ -6,9 +6,8 @@
       <class name="com.zooplus.tests.PetTests">
         <methods>
           <include name="createPetPayLoad"/>
+          <include name="updateInvalidPetTest"/>
           <include name="setBaseUri"/>
-          <include name="afterSuite"/>
-          <include name="getPetByStatusTest"/>
         </methods>
       </class> <!-- com.zooplus.tests.PetTests -->
     </classes>

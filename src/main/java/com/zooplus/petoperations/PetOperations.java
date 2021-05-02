@@ -15,7 +15,7 @@ public class PetOperations {
 		  .header("content-type","application/json")
 		  .body(petPojo)
 		  .when()
-		  .post("/v2/pet").then().assertThat().statusCode(200)
+		  .post("/v2/pet").then()
 		  .extract().response();
 	}
 	
@@ -25,7 +25,7 @@ public class PetOperations {
 		  .header("content-type","application/json")
 		  .body(petPojo)
 		  .when()
-		  .post("/v2/pet").then().assertThat().statusCode(200)
+		  .post("/v2/pet").then()
 		  .extract().response();
 	}
 	

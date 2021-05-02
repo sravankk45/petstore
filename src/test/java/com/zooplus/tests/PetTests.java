@@ -83,6 +83,26 @@ public class PetTests extends TestBase {
 		Assert.assertEquals(code, 200);
 
 	}
+	
+	@Test
+	public void updateInvalidPetTest() {
+
+		response = petOperations.addPet(petPojo);
+		jsonResponse = new JsonPath(response.asString());
+		int petId = Integer.parseInt(jsonResponse.getString("id"));
+
+		response = petOperations.deletePet(petId);
+		jsonResponse = new JsonPath(response.asString());
+		int code = Integer.parseInt(jsonResponse.getString("code"));
+		Assert.assertEquals(code, 200);
+		
+		petPojo.setName("Chow Chow");
+		response = petOperations.updatePet(petPojo);
+		Assert.assertEquals(response.getStatusCode(), 404);
+
+
+
+	}
 
 	@Test
 	public void updatePetFormDataTest() {
@@ -103,6 +123,30 @@ public class PetTests extends TestBase {
 		Assert.assertEquals(code,200);
 		  
 	}
+	
+	@Test
+	public void updateInvalidPetFormDataTest() {
+
+		response = petOperations.addPet(petPojo);
+		jsonResponse = new JsonPath(response.asString());
+		int petId = Integer.parseInt(jsonResponse.getString("id"));
+		
+		response = petOperations.deletePet(petId); 
+		jsonResponse=new JsonPath(response.asString()); 
+		int code =Integer.parseInt(jsonResponse.getString("code")); 
+		Assert.assertEquals(code,200);
+
+		petPojo.setName("Dobermann");
+		petPojo.setStatus("sold");
+
+		response = petOperations.updatePetFormData(petId, petPojo.getName(), petPojo.getStatus());
+		jsonResponse = new JsonPath(response.asString());
+
+		response = petOperations.deletePet(petId);
+		Assert.assertEquals(response.getStatusCode(), 404);
+		  
+	}
+
 
 	@Test
 	public void getPetByIdTest() {
@@ -120,6 +164,29 @@ public class PetTests extends TestBase {
 		jsonResponse = new JsonPath(response.asString());
 		int code = Integer.parseInt(jsonResponse.getString("code"));
 		Assert.assertEquals(code, 200);
+
+	}
+	
+	@Test
+	public void getInvalidPetByIdTest() {
+
+		response = petOperations.addPet(petPojo);
+		jsonResponse = new JsonPath(response.asString());
+		int petId = Integer.parseInt(jsonResponse.getString("id"));
+
+		response = petOperations.getPetById(petId);
+		jsonResponse = new JsonPath(response.asString());
+		String petName = jsonResponse.getString("name");
+		Assert.assertEquals(petName, petPojo.getName());
+
+		response = petOperations.deletePet(petId);
+		jsonResponse = new JsonPath(response.asString());
+		int code = Integer.parseInt(jsonResponse.getString("code"));
+		Assert.assertEquals(code, 200);
+		
+		response = petOperations.getPetById(petId);
+		Assert.assertEquals(response.getStatusCode(), 404);
+
 
 	}
 	
@@ -155,6 +222,31 @@ public class PetTests extends TestBase {
 		Assert.assertEquals(code, 200);
 
 		response = petOperations.getPetById(petId);
+		Assert.assertEquals(response.getStatusCode(), 404);
+
+	}
+	
+	@Test
+	public void deleteInvalidPetTest() {
+
+		response = petOperations.addPet(petPojo);
+		jsonResponse = new JsonPath(response.asString());
+		int petId = Integer.parseInt(jsonResponse.getString("id"));
+
+		response = petOperations.getPetById(petId);
+		jsonResponse = new JsonPath(response.asString());
+		String petName = jsonResponse.getString("name");
+		Assert.assertEquals(petName, petPojo.getName());
+
+		response = petOperations.deletePet(petId);
+		jsonResponse = new JsonPath(response.asString());
+		int code = Integer.parseInt(jsonResponse.getString("code"));
+		Assert.assertEquals(code, 200);
+
+		response = petOperations.getPetById(petId);
+		Assert.assertEquals(response.getStatusCode(), 404);
+		
+		response = petOperations.deletePet(petId);
 		Assert.assertEquals(response.getStatusCode(), 404);
 
 	}
