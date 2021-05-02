@@ -35,5 +35,6 @@
 ### To Run Tests
 * testng.xml file is configured with tests and extent reports
 * run the tests by executing the testng.xml file as testng suite
+* after tests run, open report under test-output/PetStoreTestReport.html to see interactuve HTML report on test execution status.
 
 
