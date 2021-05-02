@@ -31,6 +31,9 @@
 * All test classes (com.zooplus.tests package) extends TestBase class to inherit base configuration data.
 * Json payload for Pet(creation and updation) is created using Pojo java class pattern with getter and setter methods.
 	* com.zooplus.pojo.PetPojo class to represent the nested JSON payload for Pet in API requests
-	
+
+### To Run Tests
+* testng.xml file is configured with tests and extent reports
+* run the tests by executing the testng.xml file as testng suite
 
 
