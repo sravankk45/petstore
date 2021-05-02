@@ -25,7 +25,7 @@
 ### Configuration/setup to be done to run the project
 
 * The below details are configured in config.properies file(available in petstore\src\main\java\com\zooplus\config\config.properties)
-	* baseURI pet store rest api
+	* baseURI for pet store rest api
 
 
 
