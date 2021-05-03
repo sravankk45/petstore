@@ -8,47 +8,25 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">8,205</td><td></td><td></td></tr>
+<tr><th colspan="8">Pet Store</th></tr>
+<tr><td><a href="#t0">Pet Tests</a></td><td class="num">11</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">47,808</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.zooplus.tests.PetTests</td><td><a href="#m0">updateInvalidPetTest</a></td><td rowspan="1">1619996163189</td><td rowspan="1">8123</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Pet Store</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Pet Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.zooplus.tests.PetTests</td><td><a href="#m0">updateInvalidPetTest</a></td><td rowspan="1">1620023363643</td><td rowspan="1">2864</td></tr><tr><th colspan="4">Pet Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="11">com.zooplus.tests.PetTests</td><td><a href="#m1">createPetTest</a></td><td rowspan="1">1620023334049</td><td rowspan="1">8114</td></tr><tr class="passedeven"><td><a href="#m2">deleteInvalidPetTest</a></td><td rowspan="1">1620023342170</td><td rowspan="1">4169</td></tr><tr class="passedeven"><td><a href="#m3">deletePetTest</a></td><td rowspan="1">1620023346342</td><td rowspan="1">3575</td></tr><tr class="passedeven"><td><a href="#m4">getInvalidPetByIdTest</a></td><td rowspan="1">1620023349921</td><td rowspan="1">3701</td></tr><tr class="passedeven"><td><a href="#m5">getPetByIdTest</a></td><td rowspan="1">1620023353624</td><td rowspan="1">2769</td></tr><tr class="passedeven"><td><a href="#m6">getPetByStatusTest</a></td><td rowspan="1">1620023356396</td><td rowspan="1">2506</td></tr><tr class="passedeven"><td><a href="#m7">getPetByTagsTest</a></td><td rowspan="1">1620023358906</td><td rowspan="1">980</td></tr><tr class="passedeven"><td><a href="#m8">updateInvalidPetFormDataTest</a></td><td rowspan="1">1620023359889</td><td rowspan="1">3750</td></tr><tr class="passedeven"><td><a href="#m9">updatePetFormDataTest</a></td><td rowspan="1">1620023366514</td><td rowspan="1">6979</td></tr><tr class="passedeven"><td><a href="#m10">updatePetTest</a></td><td rowspan="1">1620023373496</td><td rowspan="1">3987</td></tr><tr class="passedeven"><td><a href="#m11">uploadImageTest</a></td><td rowspan="1">1620023377485</td><td rowspan="1">4295</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.zooplus.tests.PetTests#updateInvalidPetTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [404] but found [200]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-	at org.testng.Assert.assertEquals(Assert.java:122)
-	at org.testng.Assert.assertEquals(Assert.java:907)
-	at org.testng.Assert.assertEquals(Assert.java:917)
-	at com.zooplus.tests.PetTests.updateInvalidPetTest(PetTests.java:101)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+<h2>Pet Tests</h2><h3 id="m0">com.zooplus.tests.PetTests#updateInvalidPetTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [404] but found [200]
+	at com.zooplus.tests.PetTests.updateInvalidPetTest(PetTests.java:121)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 33 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.zooplus.tests.PetTests#createPetTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.zooplus.tests.PetTests#deleteInvalidPetTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.zooplus.tests.PetTests#deletePetTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.zooplus.tests.PetTests#getInvalidPetByIdTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">com.zooplus.tests.PetTests#getPetByIdTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">com.zooplus.tests.PetTests#getPetByStatusTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">com.zooplus.tests.PetTests#getPetByTagsTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">com.zooplus.tests.PetTests#updateInvalidPetFormDataTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">com.zooplus.tests.PetTests#updatePetFormDataTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">com.zooplus.tests.PetTests#updatePetTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">com.zooplus.tests.PetTests#uploadImageTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.zooplus.tests;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.testng.Assert;
@@ -17,6 +18,9 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
+/**
+ * The PetTests class is having tests to perform on pet section of pet store api
+ */
 public class PetTests extends TestBase {
 
 	private PetJsonPayload petJsonPayload;
@@ -26,13 +30,19 @@ public class PetTests extends TestBase {
 	private Response response;
 	private JsonPath jsonResponse;
 
+	/**
+	 *  Gets the Base URI before test suite runs
+	 */
 	@BeforeSuite
 	public void setBaseUri() {
 
 		RestAssured.baseURI = getBaseUri();
 
 	}
-
+	
+	/**
+	 *  Creates Json payload using Pojo class before each test
+	 */
 	@BeforeTest
 	public void createPetPayLoad() {
 
@@ -41,7 +51,10 @@ public class PetTests extends TestBase {
 		petOperations = new PetOperations();
 
 	}
-
+	
+	/**
+	 *  Test creates the Pet and validates it with name by getting details and deletes it
+	 */
 	@Test
 	public void createPetTest() {
 
@@ -60,7 +73,11 @@ public class PetTests extends TestBase {
 		Assert.assertEquals(code, 200);
 
 	}
-
+	
+	
+	/**
+	 *  Test updates the Pet after creating it and validates it with name by getting details and deletes it
+	 */
 	@Test
 	public void updatePetTest() {
 
@@ -84,6 +101,9 @@ public class PetTests extends TestBase {
 
 	}
 	
+	/**
+	 *  Test trying to Update the Pet that deleted 
+	 */
 	@Test
 	public void updateInvalidPetTest() {
 
@@ -103,7 +123,10 @@ public class PetTests extends TestBase {
 
 
 	}
-
+	
+	/**
+	 *  Test Updates the Pet after creating it using form data and deletes it
+	 */
 	@Test
 	public void updatePetFormDataTest() {
 
@@ -116,14 +139,22 @@ public class PetTests extends TestBase {
 
 		response = petOperations.updatePetFormData(petId, petPojo.getName(), petPojo.getStatus());
 		jsonResponse = new JsonPath(response.asString());
+		
+		response = petOperations.getPetById(petId);
+		jsonResponse = new JsonPath(response.asString());
+		String petName = jsonResponse.getString("name");
+		Assert.assertEquals(petName, petPojo.getName());
 
-		response = petOperations.deletePet(petId); jsonResponse=new
-		JsonPath(response.asString()); 
+		response = petOperations.deletePet(petId); 
+		jsonResponse=new JsonPath(response.asString()); 
 		int code =Integer.parseInt(jsonResponse.getString("code")); 
 		Assert.assertEquals(code,200);
 		  
 	}
 	
+	/**
+	 *  Test Trying to Update the Pet using form data after deleting it
+	 */
 	@Test
 	public void updateInvalidPetFormDataTest() {
 
@@ -146,8 +177,11 @@ public class PetTests extends TestBase {
 		Assert.assertEquals(response.getStatusCode(), 404);
 		  
 	}
+	
 
-
+	/**
+	 *  Test Gets the Pet data by using pet id and delete it
+	 */
 	@Test
 	public void getPetByIdTest() {
 
@@ -167,6 +201,9 @@ public class PetTests extends TestBase {
 
 	}
 	
+	/**
+	 *  Test trying to get the pet data after deleting it
+	 */
 	@Test
 	public void getInvalidPetByIdTest() {
 
@@ -190,20 +227,48 @@ public class PetTests extends TestBase {
 
 	}
 	
+	/**
+	 *  Test get the pets data based on status
+	 */
 	@Test
 	public void getPetByStatusTest() {
 		
-		String[] status = {"notinStock","available","pending"};
+		String[] status = {"available","pending"};
 		List<String> statusList = Arrays.asList(status);
 
 		response = petOperations.getPetByStatus(status);
 		jsonResponse = new JsonPath(response.asString());
 		
+		// response of status is in list, compares the response list with original status list
 		List<String> responseStatusList = jsonResponse.get("status");
 		Assert.assertTrue(statusList.containsAll(responseStatusList));
 	
 	}
+	
+	/**
+	 *  Test get the pets data based on tags
+	 */
+	@Test
+	public void getPetByTagsTest() {
+		
+		String[] tags = {"dog"};
+		List<String> tagsList = Arrays.asList(tags);
+		
+		response = petOperations.getPetByTags(tags);
+		jsonResponse = new JsonPath(response.asString());
+		
+		// response of tags is in list of lists, converts it into list and compares the response tags  with original tag list
+		List<List<String>> responseTags = jsonResponse.get("tags.name");
+		List<String> tagsListResponse = new ArrayList<String>();
+		responseTags.forEach(tagsListResponse::addAll);	
+		
+		Assert.assertTrue(tagsList.containsAll(tagsListResponse));
+	
+	}
 
+	/**
+	 *  delete pet test
+	 */
 	@Test
 	public void deletePetTest() {
 
@@ -226,6 +291,9 @@ public class PetTests extends TestBase {
 
 	}
 	
+	/**
+	 *  delete the non existing pet test
+	 */
 	@Test
 	public void deleteInvalidPetTest() {
 
@@ -250,7 +318,10 @@ public class PetTests extends TestBase {
 		Assert.assertEquals(response.getStatusCode(), 404);
 
 	}
-
+	
+	/**
+	 *  upload image to pet test
+	 */
 	@Test
 	public void uploadImageTest() {
 

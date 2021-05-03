@@ -7,6 +7,9 @@ import java.io.File;
 import com.zooplus.pojo.PetPojo;
 import io.restassured.response.Response;
 
+/**
+ * This PetOperations class is having all operations that can be performed on pet section of pet store api
+ */
 public class PetOperations {
 	
 	public Response addPet(PetPojo petPojo) {
@@ -58,6 +61,16 @@ public class PetOperations {
 				  .queryParam("status",petStatus)
 				  .when()
 				  .get("v2/pet/findByStatus").then()
+				  .extract().response();
+	}
+	
+	public Response getPetByTags(String[] tags) {
+		
+		return given()
+				  .urlEncodingEnabled(true)
+				  .queryParam("tags",tags)
+				  .when()
+				  .get("v2/pet/findByTags").then()
 				  .extract().response();
 	}
 	

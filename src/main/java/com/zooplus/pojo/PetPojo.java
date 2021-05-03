@@ -2,6 +2,9 @@ package com.zooplus.pojo;
 
 import java.util.List;
 
+/**
+ * The PetPojo class is to represent the nested Json payload for rest api requests
+ */
 public class PetPojo {
 	
 	private int id;

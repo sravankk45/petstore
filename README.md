@@ -5,18 +5,28 @@
 
 ### The below functionalities covered in testcases.
 
-* Adding pet to pet store
+* Adding new pet to pet store
 * Updating an exisitng pet
-* Finding the pets by status
+* Updating a non existing pet(Negative scenario, after deleting the pet trying to update)
+* Updating a non exisitng pet in pet store using form data (Negative scenario, after deleting the pet trying to update)
 * Finding the pet by petId
-* Updating pet in pet store using form data
+* Finding the non existing pet by petId (Negative scenario, after deleting the pet trying to find the pet)
+* Finding the pets by status
+* Finding the pets by Tags
+* Deleting the pet from pet store
+* Deleting the non existing pet from pet store. (Negative scenario, after deleting the pet trying to delete the pet)
 * Uploading image to a existing pet
-* Deleting the pet from pet store.
+
+
+* Note: 
+	* /pet/{petId}/uploadImage endpoint request is getting successful even with the petId does not exist and there is no expected status code(404) given in swagger.
+	* /pet end point for updating pet request is getting succesful even with  the petId doesnt not exist and a new petId is getting created.
+
 
 
 ### Tools and Technologies used
 
-* Java
+* Java (1.8 or higher)
 * TestNG
 * RestAssured
 * Maven
